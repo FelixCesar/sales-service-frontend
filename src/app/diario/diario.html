@@ -1,0 +1,43 @@
+<div
+  class="flex flex-col items-center justify-center bg-gradient-to-br from-[#f0992f] to-[#f0992f] min-h-screen py-4 px-4 space-y-4 font-sans">
+
+  <div class="w-full max-w-[45rem] rounded-2xl overflow-hidden transition-all duration-700">
+    <div class="relative">
+      <div class="flex items-center justify-between px-3 py-2 relative overflow-hidden explosive-header">
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <h2
+          class="text-3xl font-extrabold flex items-center gap-3 relative z-10 bg-clip-text bg-gradient-to-r from-orange-200 to-red-200">
+          <span class="text-3xl">🔥</span>
+          <span class="text-stroke">EQUIPO ANTTUANET Y MELISSA</span>
+        </h2>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full explosive-table">
+          <thead>
+            <tr class="explosive-table-header">
+              <th class="explosive-table-th">ASESOR</th>
+              <th class="explosive-table-th">VENTAS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let asesor of asesores(); let i = index" class="explosive-table-tr"
+              [ngClass]="getRowClass(asesor.ventas)">
+              <td class="explosive-table-td font-semibold flex items-center">
+                <span class="mr-3 text-lg">{{ getStatusEmoji(asesor.ventas, i) }}</span>
+                <input type="text"
+                       class="bg-transparent focus:border-orange-400 focus:outline-none px-1 py-1 w-32"
+                       [(ngModel)]="asesor.nombre" (change)="guardarDatos()">
+              </td>
+              <td class="explosive-table-td">
+                <input type="number" min="0"
+                       class="bg-transparent focus:border-orange-400 focus:outline-none px-1 py-1 w-16 text-center"
+                       [(ngModel)]="asesor.ventas" (change)="actualizarTotal(asesor)">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

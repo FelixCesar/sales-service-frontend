@@ -1,0 +1,110 @@
+
+.explosive-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.explosive-table-header {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.9) 0%, rgba(160, 82, 45, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 0 rgba(255, 140, 0, 0.3);
+}
+
+.explosive-table-th {
+  padding: 0.2rem 0.7rem;
+  text-align: left;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(255, 200, 150);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: relative;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.explosive-table-th:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 25%;
+  height: 50%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 140, 0, 0.4), transparent);
+}
+
+.explosive-table-tr {
+  transition: all 0.3s ease;
+  background: rgba(139, 69, 19, 0.6);
+  backdrop-filter: blur(5px);
+  color: rgb(255, 255, 255);
+  border-left: 3px solid rgba(255, 69, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.explosive-table-tr:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+
+.explosive-table-td {
+  padding: 0.1px 0.5rem;
+  font-size: 0.875rem;
+  color: white;
+  font-weight: bold;
+  border-top: 1px solid rgba(255, 140, 0, 0.2);
+}
+
+
+.explosive-header {
+  background: linear-gradient(90deg, rgba(255, 69, 0, 0.8) 0%, rgba(255, 140, 0, 0.9) 50%, rgba(255, 69, 0, 0.8) 100%);
+  box-shadow: 0 0 20px rgba(255, 140, 0, 0.6);
+  border-bottom: 2px solid rgba(139, 69, 19, 0.8);
+}
+
+
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  text-stroke: 1px rgba(255, 255, 255, 0.3);
+}
+
+
+.high-performer {
+  background: linear-gradient(90deg, rgba(74, 229, 0, 1) 0%, rgba(74, 229, 0, 1) 100%);
+  border-left: 4px solid #10b981;
+}
+
+.medium-performer {
+  background: linear-gradient(90deg, rgb(251, 255, 0) 0%, rgba(251, 255, 0) 100%);
+  border-left: 4px solid #facc15;
+}
+
+.low-performer {
+  background: linear-gradient(90deg, rgb(230, 28, 31) 0%, rgb(230, 28, 31) 100%);
+  border-left: 4px solid #ef4444;
+}
+
+:host {
+  display: block;
+  overflow: hidden;
+}
+
+input {
+  background: transparent;
+  color: rgb(0, 0, 0);
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
