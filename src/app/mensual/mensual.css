@@ -83,6 +83,7 @@
 .low-performer {
   background: linear-gradient(90deg, rgb(230, 28, 31) 0%, rgb(230, 28, 31) 100%);
   border-left: 4px solid #ef4444;
+  color: white;
 }
 
 :host {

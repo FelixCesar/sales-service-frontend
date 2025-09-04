@@ -78,7 +78,7 @@ cargarDatos() {
   }
 
   getRowClass(activas: number): string {
-    if (activas <= 3) return "low-performer";
+    if (activas <= 2) return "low-performer";
     if (activas <= 6) return "medium-performer";
     return "high-performer";
   }
