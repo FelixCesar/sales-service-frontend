@@ -16,7 +16,7 @@ interface Asesor {
   templateUrl: './mensual.html',
   styleUrl: './mensual.css'
 })
-export class Mensual implements OnInit, AfterViewInit {
+export class Mensual implements OnInit{
 
   asesores = signal<Asesor[]>([]);
 
@@ -24,9 +24,9 @@ ngOnInit() {
   this.cargarDatos();
 }
 
-  ngAfterViewInit() {
-    this.generarFuegos(); 
-  }
+  // ngAfterViewInit() {
+  //   this.generarFuegos(); 
+  // }
 
 
 cargarDatos() {
@@ -91,25 +91,25 @@ cargarDatos() {
     return '✔️';
   }
 
-generarFuegos() {
-    const container = document.querySelector(".fire-container") as HTMLElement;
-    if (!container) return;
+// generarFuegos() {
+//     const container = document.querySelector(".fire-container") as HTMLElement;
+//     if (!container) return;
 
-    setInterval(() => {
-      const emoji = document.createElement("div");
-      emoji.classList.add("fire-emoji");
-      emoji.innerText = "🔥";
+//     setInterval(() => {
+//       const emoji = document.createElement("div");
+//       emoji.classList.add("fire-emoji");
+//       emoji.innerText = "🔥";
 
-      emoji.style.left = Math.random() * 100 + "vw";
-      emoji.style.animationDuration = 3 + Math.random() * 2 + "s";
-      emoji.style.fontSize = 1 + Math.random() * 2 + "rem";
+//       emoji.style.left = Math.random() * 100 + "vw";
+//       emoji.style.animationDuration = 3 + Math.random() * 2 + "s";
+//       emoji.style.fontSize = 1 + Math.random() * 2 + "rem";
 
-      container.appendChild(emoji);
+//       container.appendChild(emoji);
 
-      setTimeout(() => {
-        emoji.remove();
-      }, 5000);
-    }, 300);
-  }
+//       setTimeout(() => {
+//         emoji.remove();
+//       }, 5000);
+//     }, 300);
+//   }
 
 }

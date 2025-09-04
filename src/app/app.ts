@@ -11,15 +11,15 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
-export class App implements OnInit{
-  mostrarDiario = true;
-  private intervalo: any;
+export class App{
+  // mostrarDiario = true;
+  // private intervalo: any;
 
-  ngOnInit() {
-    this.intervalo = setInterval(() => {
-      this.mostrarDiario = !this.mostrarDiario;
-    }, 5000);
-  }
+  // ngOnInit() {
+  //   this.intervalo = setInterval(() => {
+  //     this.mostrarDiario = !this.mostrarDiario;
+  //   }, 5000);
+  // }
 
 
 }
