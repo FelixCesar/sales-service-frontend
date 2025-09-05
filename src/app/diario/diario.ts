@@ -62,8 +62,8 @@ export class Diario implements OnInit {
   }
 
   getRowClass(ventas: number): string {
-    if (ventas <= 3) return "low-performer";
-    if (ventas <= 6) return "medium-performer";
+    if (ventas <= 0) return "low-performer";
+    if (ventas <= 1) return "medium-performer";
     return "high-performer";
   }
 
@@ -71,8 +71,8 @@ export class Diario implements OnInit {
     if (index === 0) return '🥇';
     if (index === 1) return '🥈';
     if (index === 2) return '🥉';
-    if (ventas <= 3) return '😥';
-    if (ventas <= 6) return '⚠️';
+    if (ventas <= 0) return '😥';
+    if (ventas <= 1) return '⚠️';
     return '✔️';
   }
 }
