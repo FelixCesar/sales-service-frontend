@@ -1,0 +1,27 @@
+:host {
+display: block;
+width: 100%;
+height: 100vh; /* ocupa toda la altura de la ventana */
+}
+
+
+.asesor-wrapper {
+background: #FFEB3B; /* amarillo */
+width: 100%;
+height: 100%;
+display: flex;
+align-items: center; /* centra vertical */
+justify-content: center; /* centra horizontal */
+}
+
+
+.asesor-message {
+color: #000; /* letra negra */
+font-weight: 800;
+font-size: clamp(28px, 8vw, 96px); /* grande y responsivo */
+text-align: center;
+margin: 0;
+padding: 1rem;
+line-height: 1.1;
+user-select: none;
+}
