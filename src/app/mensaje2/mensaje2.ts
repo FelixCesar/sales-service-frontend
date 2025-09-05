@@ -8,20 +8,20 @@ import { Component } from '@angular/core';
   styleUrl: './mensaje2.css'
 })
 export class Mensaje2 {
-equipos = [
+  equipos = [
     { 
       nombre: 'Anttuaneth', 
       ventas: 5, 
       producto: 'VODAFONE', 
       pizzas: 2,
-      imagen: 'kfc.jfif'
+      imagenes: ['kfc.png', 'cartman.png']
     },
     { 
       nombre: 'Melissa', 
       ventas: 7, 
       producto: 'VODAFONE', 
       pizzas: 2,
-      imagen: 'kfc.jfif'
+      imagenes: ['kfc.png', 'cartman.png']    
     }
   ];
 }

@@ -4,7 +4,8 @@
   <div class="cards">
     @for (equipo of equipos; track $index) {
       <div class="card">
-        <!-- Imagen del equipo -->
+        
+
 
         <p class="subtitle">
           Equipo <span class="team">{{ equipo.nombre }}</span>
@@ -20,7 +21,11 @@
           Regalamos <strong>{{ equipo.pizzas }}</strong> Vales KFC
           <span class="emoji">🍗🐓</span>
         </div>
-            <img [src]="equipo.imagen" alt="Logo {{ equipo.nombre }}" class="card-img" />
+        <div class="img-row">
+          @for (img of equipo.imagenes; track $index) {
+            <img [src]="img" alt="Logo {{ equipo.nombre }}" class="card-img" />
+          }
+        </div>
       </div>
     }
   </div>
