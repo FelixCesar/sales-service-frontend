@@ -9,7 +9,19 @@ import { Component } from '@angular/core';
 })
 export class Mensaje2 {
 equipos = [
-{ nombre: 'Anttaneth', ventas: 5, producto: 'VODAFONE', pizzas: 2 },
-{ nombre: 'Melissa', ventas: 5, producto: 'VODAFONE', pizzas: 2 }
-];
+    { 
+      nombre: 'Anttuaneth', 
+      ventas: 5, 
+      producto: 'VODAFONE', 
+      pizzas: 2,
+      imagen: 'kfc.jfif'
+    },
+    { 
+      nombre: 'Melissa', 
+      ventas: 7, 
+      producto: 'VODAFONE', 
+      pizzas: 2,
+      imagen: 'kfc.jfif'
+    }
+  ];
 }
