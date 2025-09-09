@@ -1,27 +1,38 @@
 :host {
-display: block;
-width: 100%;
-height: 100vh; /* ocupa toda la altura de la ventana */
+  display: block;
+  width: 100%;
+  height: 100vh;
 }
-
 
 .asesor-wrapper {
-background: #FFEB3B; /* amarillo */
-width: 100%;
-height: 100%;
-display: flex;
-align-items: center; /* centra vertical */
-justify-content: center; /* centra horizontal */
+  background: #FFEB3B; /* amarillo */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center; /* centra vertical */
+  justify-content: center; /* centra horizontal */
 }
 
+.asesor-content {
+  display: flex;
+  flex-direction: column; /* Apila el mensaje y el video */
+  align-items: center; /* Centra horizontalmente el contenido apilado */
+  text-align: center;
+  padding: 1rem;
+}
 
 .asesor-message {
-color: #000; /* letra negra */
-font-weight: 800;
-font-size: clamp(28px, 8vw, 96px); /* grande y responsivo */
-text-align: center;
-margin: 0;
-padding: 1rem;
-line-height: 1.1;
-user-select: none;
+  color: #000;
+  font-weight: 800;
+  font-size: clamp(28px, 8vw, 96px);
+  margin: 0 0 1.5rem 0; /* Margen inferior para separar del video */
+  line-height: 1.1;
+  user-select: none;
+}
+
+.asesor-video {
+  width: clamp(250px, 80vw, 650px); /* Tamaño responsivo para el video */
+  height: auto;
+  border-radius: 15px; /* Bordes redondeados para el video */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra sutil para el video */
 }

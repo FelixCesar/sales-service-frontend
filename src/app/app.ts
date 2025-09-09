@@ -7,19 +7,9 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Mensual, Diario, CommonModule],
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
 export class App{
-  // mostrarDiario = true;
-  // private intervalo: any;
-
-  // ngOnInit() {
-  //   this.intervalo = setInterval(() => {
-  //     this.mostrarDiario = !this.mostrarDiario;
-  //   }, 5000);
-  // }
-
-
 }
