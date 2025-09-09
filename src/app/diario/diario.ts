@@ -16,6 +16,7 @@ interface Asesor {
 export class Diario implements OnInit {
 
   asesores = signal<Asesor[]>([]);
+  fechaHoy = new Date().toLocaleDateString();
 
   ngOnInit() {
     this.cargarDatos();
