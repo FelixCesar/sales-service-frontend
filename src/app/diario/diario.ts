@@ -4,7 +4,12 @@ import { FormsModule } from "@angular/forms";
 
 interface Asesor {
   nombre: string;
-  ventas: number;
+  enCurso: number;
+  activas: number;
+  instaladas: number;
+  canceladas: number;
+  total: number;
+  grupo: number;
 }
 
 @Component({
@@ -15,7 +20,10 @@ interface Asesor {
 })
 export class Diario implements OnInit {
 
-  asesores = signal<Asesor[]>([]);
+  // asesores = signal<Asesor[]>([]);
+  grupo1 = signal<Asesor[]>([]);
+  grupo2 = signal<Asesor[]>([]);
+
   fechaHoy = new Date().toLocaleDateString();
 
   ngOnInit() {
@@ -24,10 +32,14 @@ export class Diario implements OnInit {
 
   cargarDatos() {
     if (typeof window !== 'undefined' && window.localStorage) {
-      const datosGuardados = localStorage.getItem("asesores");
-      if (datosGuardados) {
-        const loadedData = JSON.parse(datosGuardados);
-        this.asesores.set(this.sortAsesores(loadedData));
+      const datosGuardadosGrupo1 = localStorage.getItem("asesores_grupo1");
+      const datosGuardadosGrupo2 = localStorage.getItem("asesores_grupo2");
+      
+      if (datosGuardadosGrupo1 && datosGuardadosGrupo2) {
+        const loadedData1 = JSON.parse(datosGuardadosGrupo1);
+        const loadedData2 = JSON.parse(datosGuardadosGrupo2);
+        this.grupo1.set(this.sortAsesores(loadedData1));
+        this.grupo2.set(this.sortAsesores(loadedData2));
       } else {
         this.inicializarDatos();
       }
@@ -37,29 +49,65 @@ export class Diario implements OnInit {
   }
 
   inicializarDatos() {
-    const inicial: Asesor[] = [];
-    for (let i = 1; i <= 18; i++) {
-      inicial.push({
+    const grupo1: Asesor[] = [];
+    const grupo2: Asesor[] = [];
+    
+    for (let i = 1; i <= 9; i++) {
+      grupo1.push({
         nombre: `Asesor ${i}`,
-        ventas: 0
+        enCurso: 0,
+        activas: 0,
+        instaladas: 0,
+        canceladas: 0,
+        total: 0,
+        grupo: 1
       });
     }
-    this.asesores.set(this.sortAsesores(inicial));
+    
+    for (let i = 10; i <= 18; i++) {
+      grupo2.push({
+        nombre: `Asesor ${i}`,
+        enCurso: 0,
+        activas: 0,
+        instaladas: 0,
+        canceladas: 0,
+        total: 0,
+        grupo: 2
+      });
+    }
+    
+    this.grupo1.set(this.sortAsesores(grupo1));
+    this.grupo2.set(this.sortAsesores(grupo2));
     this.guardarDatos();
   }
 
   guardarDatos() {
-    const sortedData = this.sortAsesores(this.asesores());
-    localStorage.setItem("asesores", JSON.stringify(sortedData));
-    this.asesores.set(sortedData);
+    const sortedData1 = this.sortAsesores(this.grupo1());
+    const sortedData2 = this.sortAsesores(this.grupo2());
+    
+    localStorage.setItem("asesores_grupo1", JSON.stringify(sortedData1));
+    localStorage.setItem("asesores_grupo2", JSON.stringify(sortedData2));
+    
+    this.grupo1.set(sortedData1);
+    this.grupo2.set(sortedData2);
   }
 
   actualizarTotal(asesor: Asesor) {
+    asesor.total = asesor.activas;
+    
+    if (asesor.grupo === 1) {
+      this.grupo1.set(this.sortAsesores([...this.grupo1()]));
+    } else {
+      this.grupo2.set(this.sortAsesores([...this.grupo2()]));
+    }
+    
     this.guardarDatos();
   }
 
   private sortAsesores(asesoresArray: Asesor[]): Asesor[] {
-    return asesoresArray.sort((a, b) => b.ventas - a.ventas);
+    return asesoresArray.sort((a, b) => {
+      return b.activas - a.activas;
+    });
   }
 
   getRowClass(ventas: number): string {
