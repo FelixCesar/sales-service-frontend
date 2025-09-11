@@ -26,23 +26,21 @@ export class Mensual implements OnInit {
     this.cargarDatos();
   }
 
-  cargarDatos() {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      const datosGuardadosGrupo1 = localStorage.getItem("asesores_grupo1");
-      const datosGuardadosGrupo2 = localStorage.getItem("asesores_grupo2");
-      
-      if (datosGuardadosGrupo1 && datosGuardadosGrupo2) {
-        const loadedData1 = JSON.parse(datosGuardadosGrupo1);
-        const loadedData2 = JSON.parse(datosGuardadosGrupo2);
-        this.grupo1.set(this.sortAsesores(loadedData1));
-        this.grupo2.set(this.sortAsesores(loadedData2));
-      } else {
-        this.inicializarDatos();
-      }
+cargarDatos() {
+  if (typeof window !== 'undefined' && window.localStorage) {
+    const datosGuardados = localStorage.getItem("diario_asesores");
+    
+    if (datosGuardados) {
+      const parsedData = JSON.parse(datosGuardados);
+      this.grupo1.set(this.sortAsesores(parsedData.grupo1 || []));
+      this.grupo2.set(this.sortAsesores(parsedData.grupo2 || []));
     } else {
       this.inicializarDatos();
     }
+  } else {
+    this.inicializarDatos();
   }
+}
 
   inicializarDatos() {
     const grupo1: Asesor[] = [];
@@ -77,16 +75,20 @@ export class Mensual implements OnInit {
     this.guardarDatos();
   }
 
-  guardarDatos() {
-    const sortedData1 = this.sortAsesores(this.grupo1());
-    const sortedData2 = this.sortAsesores(this.grupo2());
-    
-    localStorage.setItem("asesores_grupo1", JSON.stringify(sortedData1));
-    localStorage.setItem("asesores_grupo2", JSON.stringify(sortedData2));
-    
-    this.grupo1.set(sortedData1);
-    this.grupo2.set(sortedData2);
-  }
+guardarDatos() {
+  const sortedData1 = this.sortAsesores(this.grupo1());
+  const sortedData2 = this.sortAsesores(this.grupo2());
+
+  const datos = {
+    grupo1: sortedData1,
+    grupo2: sortedData2
+  };
+
+  localStorage.setItem("diario_asesores", JSON.stringify(datos));
+
+  this.grupo1.set(sortedData1);
+  this.grupo2.set(sortedData2);
+}
 
   actualizarTotal(asesor: Asesor) {
     asesor.total = asesor.activas;
