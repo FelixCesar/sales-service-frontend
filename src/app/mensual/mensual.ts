@@ -9,7 +9,7 @@ interface Asesor {
   instaladas: number;
   canceladas: number;
   total: number;
-  grupo: number; // 1 o 2 para identificar a qué grupo pertenece
+  grupo: number;
 }
 
 @Component({

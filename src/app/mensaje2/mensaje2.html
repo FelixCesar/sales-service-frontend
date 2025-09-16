@@ -4,28 +4,13 @@
   <div class="cards">
     @for (equipo of equipos; track $index) {
       <div class="card">
-        
-
-
         <p class="subtitle">
-          Equipo <span class="team">{{ equipo.nombre }}</span>
-          <span class="dot">•</span>
-          <strong class="ventas">{{ equipo.ventas }} ventas</strong>
+          {{ equipo.nombre }}
         </p>
-
-        <p class="product">
-          Producto: <span class="prod-name">{{ equipo.producto }}</span>
+        <p class="ventas">
+          {{ equipo.ventas }} ventas {{ equipo.producto }} = 
+          <strong>{{ equipo.ventas * precioPorVenta }} soles</strong>
         </p>
-
-        <div class="reward">
-          Regalamos <strong>{{ equipo.pizzas }}</strong> Vales KFC
-          <span class="emoji">🍗🐓</span>
-        </div>
-        <div class="img-row">
-          @for (img of equipo.imagenes; track $index) {
-            <img [src]="img" alt="Logo {{ equipo.nombre }}" class="card-img" />
-          }
-        </div>
       </div>
     }
   </div>

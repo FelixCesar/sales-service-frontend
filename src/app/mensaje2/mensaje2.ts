@@ -9,19 +9,9 @@ import { Component } from '@angular/core';
 })
 export class Mensaje2 {
   equipos = [
-    { 
-      nombre: 'Anttuaneth', 
-      ventas: 5, 
-      producto: 'VODAFONE', 
-      pizzas: 2,
-      imagenes: ['kfc.png', 'cartman.png']
-    },
-    { 
-      nombre: 'Melissa', 
-      ventas: 7, 
-      producto: 'VODAFONE', 
-      pizzas: 2,
-      imagenes: ['kfc.png', 'cartman.png']    
-    }
+    { nombre: 'Anttuaneth', ventas: 2, producto: 'VODAFONE' },
+    { nombre: 'Melissa', ventas: 2, producto: 'VODAFONE' }
   ];
+
+  precioPorVenta = 12.5; 
 }
