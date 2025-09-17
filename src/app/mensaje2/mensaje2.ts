@@ -10,7 +10,8 @@ import { Component } from '@angular/core';
 export class Mensaje2 {
   equipos = [
     { nombre: 'Anttuaneth', ventas: 2, producto: 'VODAFONE' },
-    { nombre: 'Melissa', ventas: 2, producto: 'VODAFONE' }
+    { nombre: 'Melissa', ventas: 2, producto: 'VODAFONE' },
+    { nombre: 'Brandon', ventas: 2, producto: 'VODAFONE' },
   ];
 
   precioPorVenta = 12.5; 
